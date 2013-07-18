@@ -121,7 +121,7 @@ class User
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -144,7 +144,7 @@ class User
     /**
      * Get username
      *
-     * @return string 
+     * @return string
      */
     public function getUsername()
     {
@@ -167,7 +167,7 @@ class User
     /**
      * Get langcode
      *
-     * @return string 
+     * @return string
      */
     public function getLangcode()
     {
@@ -190,7 +190,7 @@ class User
     /**
      * Get salt
      *
-     * @return string 
+     * @return string
      */
     public function getSalt()
     {
@@ -213,7 +213,7 @@ class User
     /**
      * Get password
      *
-     * @return string 
+     * @return string
      */
     public function getPassword()
     {
@@ -236,7 +236,7 @@ class User
     /**
      * Get mail
      *
-     * @return string 
+     * @return string
      */
     public function getMail()
     {
@@ -259,7 +259,7 @@ class User
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getCreated()
     {
@@ -282,7 +282,7 @@ class User
     /**
      * Get access
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getAccess()
     {
@@ -305,7 +305,7 @@ class User
     /**
      * Get login
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getLogin()
     {
@@ -328,7 +328,7 @@ class User
     /**
      * Get status
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getStatus()
     {
@@ -351,7 +351,7 @@ class User
     /**
      * Get timezone
      *
-     * @return string 
+     * @return string
      */
     public function getTimezone()
     {
@@ -374,7 +374,7 @@ class User
     /**
      * Get init
      *
-     * @return string 
+     * @return string
      */
     public function getInit()
     {

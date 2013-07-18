@@ -1,0 +1,3 @@
+pantarei_user:
+    resource: "@PantareiUserBundle/Resources/config/routing.yml"
+    prefix:   /
