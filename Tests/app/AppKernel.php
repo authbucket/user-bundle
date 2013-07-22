@@ -17,9 +17,13 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = array(
+            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Pantarei\Bundle\UserBundle\PantareiUserBundle(),
+            new Pantarei\Bundle\UserBundle\Tests\TestBundle\TestBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
         );
 

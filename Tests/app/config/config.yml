@@ -1,3 +1,6 @@
+imports:
+    - { resource: security.yml }
+
 framework:
     #esi:             ~
     #translator:      { fallback: %locale% }
@@ -24,3 +27,13 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_sqlite
+        path:   %kernel.cache_dir%/.ht.sqlite
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true

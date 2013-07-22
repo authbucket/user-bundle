@@ -9,16 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\UserBundle\Entity;
+namespace Pantarei\Bundle\UserBundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Pantarei\Bundle\UserBundle\Entity\Role as AbstractRole;
 
 /**
  * Role
  *
- * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\UserBundle\Entity\RoleRepository")
+ * @ORM\Table(name="test_role")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\UserBundle\Tests\TestBundle\Entity\RoleRepository")
  */
-class Role
+class Role extends AbstractRole
 {
     /**
      * @var integer
@@ -30,14 +32,6 @@ class Role
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=255)
-     */
-    private $role;
-
-
-    /**
      * Get id
      *
      * @return integer
@@ -45,28 +39,5 @@ class Role
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set role
-     *
-     * @param string $role
-     * @return Role
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
-    /**
-     * Get role
-     *
-     * @return string
-     */
-    public function getRole()
-    {
-        return $this->role;
     }
 }

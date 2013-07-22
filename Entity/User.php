@@ -19,42 +19,42 @@ use Pantarei\User\Model\UserInterface;
  *
  * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\UserBundle\Entity\UserRepository")
  */
-class User extends UserInterface
+class User implements UserInterface
 {
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      *
      * @ORM\Column(name="salt", type="string", length=255)
      */
-    private $salt;
+    protected $salt;
 
     /**
      * @var array
      *
      * @ORM\Column(name="roles", type="array")
      */
-    private $roles;
+    protected $roles;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
      */
-    private $mail;
+    protected $mail;
 
     public function __construct()
     {
@@ -178,5 +178,29 @@ class User extends UserInterface
     public function getMail()
     {
         return $this->mail;
+    }
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function isAccountNonExpired()
+    {
+        return true;
+    }   
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return true;
     }
 }

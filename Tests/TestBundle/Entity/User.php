@@ -17,7 +17,7 @@ use Pantarei\Bundle\UserBundle\Entity\User as AbstractUser;
 /**
  * User
  *
- * @ORM\Table(name="access_token")
+ * @ORM\Table(name="test_user")
  * @ORM\Entity(repositoryClass="Pantarei\Bundle\UserBundle\Tests\TestBundle\Entity\UserRepository")
  */
 class User extends AbstractUser

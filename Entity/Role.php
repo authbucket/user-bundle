@@ -19,14 +19,14 @@ use Pantarei\User\Model\RoleInterface;
  *
  * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\UserBundle\Entity\RoleRepository")
  */
-class Role extends RoleInterface
+class Role implements RoleInterface
 {
     /**
      * @var string
      *
      * @ORM\Column(name="role", type="string", length=255)
      */
-    private $role;
+    protected $role;
 
     /**
      * Set role
