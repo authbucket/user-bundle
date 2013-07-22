@@ -12,120 +12,57 @@
 namespace Pantarei\Bundle\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Pantarei\User\Model\UserInterface;
 
 /**
  * User
  *
- * @ORM\Table(pantarei_user)
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\UserBundle\Entity\UserRepository")
+ * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\UserBundle\Entity\UserRepository")
  */
-class User
+class User extends UserInterface
 {
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=255)
      */
-    protected $username;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="langcode", type="string", length=255)
-     */
-    protected $langcode;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="salt", type="string", length=255)
-     */
-    protected $salt;
+    private $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
-    protected $password;
+    private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="salt", type="string", length=255)
+     */
+    private $salt;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
      */
-    protected $mail;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="created", type="datetime")
-     */
-    protected $created;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="access", type="datetime")
-     */
-    protected $access;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="login", type="datetime")
-     */
-    protected $login;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="status", type="boolean")
-     */
-    protected $status;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="timezone", type="string", length=255)
-     */
-    protected $timezone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="init", type="string", length=255)
-     */
-    protected $init;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Role", inversedBy="users")
-     *
-     */
-    protected $roles;
+    private $mail;
 
     public function __construct()
     {
-        $this->roles = new ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
+        $this->username = '';
+        $this->password = '';
+        $this->salt = '';
+        $this->mail = '';
+        $this->roles = array('ROLE_USER');
     }
 
     /**
@@ -152,26 +89,26 @@ class User
     }
 
     /**
-     * Set langcode
+     * Set password
      *
-     * @param string $langcode
+     * @param string $password
      * @return User
      */
-    public function setLangcode($langcode)
+    public function setPassword($password)
     {
-        $this->langcode = $langcode;
+        $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get langcode
+     * Get password
      *
      * @return string
      */
-    public function getLangcode()
+    public function getPassword()
     {
-        return $this->langcode;
+        return $this->password;
     }
 
     /**
@@ -198,26 +135,26 @@ class User
     }
 
     /**
-     * Set password
+     * Set roles
      *
-     * @param string $password
+     * @param array $roles
      * @return User
      */
-    public function setPassword($password)
+    public function setRoles($roles)
     {
-        $this->password = $password;
+        $this->roles = $roles;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get roles
      *
-     * @return string
+     * @return array
      */
-    public function getPassword()
+    public function getRoles()
     {
-        return $this->password;
+        return $this->roles;
     }
 
     /**
@@ -241,153 +178,5 @@ class User
     public function getMail()
     {
         return $this->mail;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return User
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set access
-     *
-     * @param \DateTime $access
-     * @return User
-     */
-    public function setAccess($access)
-    {
-        $this->access = $access;
-
-        return $this;
-    }
-
-    /**
-     * Get access
-     *
-     * @return \DateTime
-     */
-    public function getAccess()
-    {
-        return $this->access;
-    }
-
-    /**
-     * Set login
-     *
-     * @param \DateTime $login
-     * @return User
-     */
-    public function setLogin($login)
-    {
-        $this->login = $login;
-
-        return $this;
-    }
-
-    /**
-     * Get login
-     *
-     * @return \DateTime
-     */
-    public function getLogin()
-    {
-        return $this->login;
-    }
-
-    /**
-     * Set status
-     *
-     * @param boolean $status
-     * @return User
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return boolean
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set timezone
-     *
-     * @param string $timezone
-     * @return User
-     */
-    public function setTimezone($timezone)
-    {
-        $this->timezone = $timezone;
-
-        return $this;
-    }
-
-    /**
-     * Get timezone
-     *
-     * @return string
-     */
-    public function getTimezone()
-    {
-        return $this->timezone;
-    }
-
-    /**
-     * Set init
-     *
-     * @param string $init
-     * @return User
-     */
-    public function setInit($init)
-    {
-        $this->init = $init;
-
-        return $this;
-    }
-
-    /**
-     * Get init
-     *
-     * @return string
-     */
-    public function getInit()
-    {
-        return $this->init;
-    }
-
-    /**
-     * Get roles
-     *
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles->toArray();
     }
 }
