@@ -14,7 +14,7 @@ namespace Pantarei\Bundle\UserBundle\Entity;
 use Doctrine\ORM\EntityRepository;
 use Pantarei\User\Model\UserInterface;
 use Pantarei\User\Model\UserManagerInterface;
-use Symfony\Component\Security\Core\User\UserInterface as AbstractUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface as SecurityUserInterface;
 
 /**
  * UserRepository
@@ -43,7 +43,7 @@ class UserRepository extends EntityRepository implements UserManagerInterface
 
     public function reloadUser(UserInterface $user)
     {
-        $this->getEntityManager()->refresh($user);
+        return $this->refreshUser($user);
     }
 
     public function updateUser(UserInterface $user)
@@ -54,19 +54,19 @@ class UserRepository extends EntityRepository implements UserManagerInterface
 
     public function findUserByUsername($username)
     {
+        return $this->loadUserByUsername($username);
+    }
+
+    public function loadUserByUsername($username)
+    {
         return $this->findOneBy(array(
             'username' => $username,
         ));
     }
 
-    public function loadUserByUsername($username)
+    public function refreshUser(SecurityUserInterface $user)
     {
-        return $this->findUserByUsername($username);
-    }
-
-    public function refreshUser(AbstractUserInterface $user)
-    {
-        return $this->reloadUser($user);
+        return $this->loadUserByUsername($user->getUsername());
     }
 
     public function supportsClass($class)

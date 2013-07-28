@@ -1,3 +1,0 @@
-pantarei_user_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PantareiUserBundle:Default:index }

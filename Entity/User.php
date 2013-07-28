@@ -187,7 +187,7 @@ class User implements UserInterface
     public function isAccountNonExpired()
     {
         return true;
-    }   
+    }
 
     public function isAccountNonLocked()
     {

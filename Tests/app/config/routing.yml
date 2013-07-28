@@ -1,3 +1,7 @@
 pantarei_user:
     resource: "@PantareiUserBundle/Resources/config/routing.yml"
     prefix:   /
+
+test:
+    resource:   "@TestBundle/Resources/config/routing.yml"
+    prefix:     /
