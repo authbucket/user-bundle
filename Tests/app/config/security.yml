@@ -19,7 +19,6 @@ security:
                 login_path:         /login
                 check_path:         /login_check
                 provider:           default
-                csrf_provider:      form.csrf_provider
             http_basic:
                 provider:           default
             anonymous:              true

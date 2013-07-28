@@ -29,7 +29,7 @@ class Role extends AbstractRole
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * Get id
