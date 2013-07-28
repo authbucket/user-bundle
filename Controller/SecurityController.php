@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\UserBundle\Tests\TestBundle\Controller;
+namespace Pantarei\Bundle\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +31,7 @@ class SecurityController extends Controller
             $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
         }
 
-        return $this->render('TestBundle:Security:login.html.twig', array(
+        return $this->render('PantareiUserBundle:Security:login.html.twig', array(
             'error' => $error,
             'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
         ));

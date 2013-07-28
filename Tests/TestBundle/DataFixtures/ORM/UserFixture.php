@@ -24,7 +24,7 @@ class UserFixture implements FixtureInterface
             ->setPassword('demopassword1')
             ->setSalt('')
             ->setRoles(array(
-                'ROLE_USER'
+                'ROLE_USER',
             ))
             ->setMail('demousername1@example.com');
         $manager->persist($model);
@@ -33,7 +33,7 @@ class UserFixture implements FixtureInterface
             ->setPassword('demopassword2')
             ->setSalt('')
             ->setRoles(array(
-                'ROLE_USER'
+                'ROLE_USER',
             ))
             ->setMail('demousername2@example.com');
         $manager->persist($model);
@@ -42,7 +42,7 @@ class UserFixture implements FixtureInterface
             ->setPassword('demopassword3')
             ->setSalt('')
             ->setRoles(array(
-                'ROLE_USER'
+                'ROLE_USER',
             ))
             ->setMail('demousername3@example.com');
         $manager->persist($model);
