@@ -4,3 +4,8 @@ pantarei_user_login:
 
 pantarei_user_login_check:
     pattern:    /login_check
+    defaults:   { _controller:PantareiUserBundle:Security:loginCheck }
+
+pantarei_user_logout:
+    pattern:    /logout
+    defaults:   { _controller:PantareiUserBundle:Security:logout }

@@ -36,5 +36,14 @@ class SecurityController extends Controller
             'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
         ));
     }
-}
 
+    public function loginCheckAction()
+    {
+        throw new \RuntimeException('Login check path should handle by firewall.');
+    }
+
+    public function logoutAction()
+    {
+        throw new \RuntimeException('Logout path should handle by firewall.');
+    }
+}
